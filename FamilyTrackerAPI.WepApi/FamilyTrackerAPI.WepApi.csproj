@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.0-preview.3.22175.1" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FamilyTracker.DB\FamilyTracker.DB.csproj" />
+      <ProjectReference Include="..\FamilyTrackerAPI.Core\FamilyTrackerAPI.Core.csproj" />
+      <ProjectReference Include="..\FamilyTrackerAPI.Domain\FamilyTrackerAPI.Domain.csproj" />
+      <ProjectReference Include="..\FamilyTrackerAPI.MongoDB\FamilyTrackerAPI.MongoDB.csproj" />
+    </ItemGroup>
+
+</Project>
