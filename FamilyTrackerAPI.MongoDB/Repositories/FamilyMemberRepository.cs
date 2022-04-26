@@ -52,7 +52,21 @@ public class FamilyMemberRepository : IFamilyMemberRepository
 
     public List<FamilyMember> GetFamilyMembers()
     {
-        throw new NotImplementedException();
+        var query = _familyMembersCollection.AsQueryable<FamilyMemberEntity>()
+            .Select(entity => new
+            {
+                entity.Id, entity.Name, entity.Location, entity.Phone,
+                entity.Picture
+            });
+
+        List<FamilyMember> list = new List<FamilyMember>();
+
+        foreach (var member in query)
+        {
+            list.Add(new FamilyMember() {Id = member.Id, Name = member.Name, Phone = member.Phone, Picture = member.Picture, Location = member.Location});
+        }
+
+        return list;
     }
 
     public void DeleteFamilyMember(int id)
