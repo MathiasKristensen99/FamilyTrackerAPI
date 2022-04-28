@@ -69,5 +69,26 @@ namespace FamilyTrackerAPI.WepApi.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<FamilyMemberDto> GetFamilyMember(string id)
+        {
+            try
+            {
+                var familyMember = _familyMemberService.GetFamilyMember(id);
+                return Ok(new FamilyMemberDto
+                {
+                    Id = familyMember.Id,
+                    Name = familyMember.Name,
+                    Phone = familyMember.Phone,
+                    Picture = familyMember.Picture,
+                    Location = familyMember.Location
+                });
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
     }
 }

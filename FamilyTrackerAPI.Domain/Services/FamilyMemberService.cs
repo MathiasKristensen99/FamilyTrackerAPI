@@ -18,7 +18,7 @@ public class FamilyMemberService : IFamilyMemberService
         return _repository.CreateFamilyMember(familyMember);
     }
 
-    public FamilyMember GetFamilyMember(int id)
+    public FamilyMember GetFamilyMember(string id)
     {
         return _repository.GetFamilyMember(id);
     }

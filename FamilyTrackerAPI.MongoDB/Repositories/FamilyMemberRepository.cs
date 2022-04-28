@@ -2,6 +2,7 @@
 using FamilyTrackerAPI.Domain.IRepositories;
 using FamilyTrackerAPI.MongoDB.Entities;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace FamilyTrackerAPI.MongoDB.Repositories;
@@ -45,9 +46,19 @@ public class FamilyMemberRepository : IFamilyMemberRepository
         };
     }
 
-    public FamilyMember GetFamilyMember(int id)
+    public FamilyMember GetFamilyMember(string id)
     {
-        throw new NotImplementedException();
+        var member = _familyMembersCollection.Find(Builders<FamilyMemberEntity>.Filter.Eq("_id", ObjectId.Parse(id)))
+            .FirstOrDefault();
+        
+        return new FamilyMember
+        {
+            Id = member.Id,
+            Name = member.Name,
+            Phone = member.Phone,
+            Picture = member.Picture,
+            Location = member.Location
+        };
     }
 
     public List<FamilyMember> GetFamilyMembers()
@@ -60,7 +71,7 @@ public class FamilyMemberRepository : IFamilyMemberRepository
             });
 
         List<FamilyMember> list = new List<FamilyMember>();
-
+        
         foreach (var member in query)
         {
             list.Add(new FamilyMember() {Id = member.Id, Name = member.Name, Phone = member.Phone, Picture = member.Picture, Location = member.Location});

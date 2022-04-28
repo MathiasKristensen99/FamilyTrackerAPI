@@ -4,7 +4,7 @@ public interface IFamilyMemberService
 {
     FamilyMember CreateFamilyMember(FamilyMember familyMember);
 
-    FamilyMember GetFamilyMember(int id);
+    FamilyMember GetFamilyMember(string id);
 
     List<FamilyMember> GetFamilyMembers();
 
