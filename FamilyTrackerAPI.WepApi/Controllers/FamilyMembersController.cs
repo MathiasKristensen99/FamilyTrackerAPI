@@ -90,5 +90,19 @@ namespace FamilyTrackerAPI.WepApi.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+
+        [HttpPut("{id}")]
+        public ActionResult<FamilyMemberDto> UpdateFamilyMember(string id, FamilyMemberDto dto)
+        {
+            var member = _familyMemberService.UpdateFamilyMember(new FamilyMember
+            {
+                Id = dto.Id,
+                Name = dto.Name,
+                Phone = dto.Phone,
+                Picture = dto.Picture,
+                Location = dto.Location
+            });
+            return Ok(dto);
+        }
     }
 }
