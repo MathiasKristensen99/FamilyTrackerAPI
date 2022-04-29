@@ -80,9 +80,10 @@ public class FamilyMemberRepository : IFamilyMemberRepository
         return list;
     }
 
-    public void DeleteFamilyMember(int id)
+    public void DeleteFamilyMember(string id)
     {
-        throw new NotImplementedException();
+        _familyMembersCollection.DeleteOne(entity => entity.Id == id);
+        
     }
 
     public FamilyMember UpdateFamilyMember(FamilyMember familyMember)

@@ -28,7 +28,7 @@ public class FamilyMemberService : IFamilyMemberService
         return _repository.GetFamilyMembers();
     }
 
-    public void DeleteFamilyMember(int id)
+    public void DeleteFamilyMember(string id)
     {
         _repository.DeleteFamilyMember(id);
     }

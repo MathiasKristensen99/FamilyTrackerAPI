@@ -1,4 +1,6 @@
-﻿namespace FamilyTrackerAPI.Core.IServices;
+﻿using System.Collections.Generic;
+
+namespace FamilyTrackerAPI.Core.IServices;
 
 public interface IFamilyMemberService
 {
@@ -8,7 +10,7 @@ public interface IFamilyMemberService
 
     List<FamilyMember> GetFamilyMembers();
 
-    void DeleteFamilyMember(int id);
+    void DeleteFamilyMember(string id);
 
     FamilyMember UpdateFamilyMember(FamilyMember familyMember);
 }

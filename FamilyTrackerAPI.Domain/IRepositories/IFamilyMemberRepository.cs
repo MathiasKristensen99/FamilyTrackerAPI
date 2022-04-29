@@ -10,7 +10,7 @@ public interface IFamilyMemberRepository
     
     List<FamilyMember> GetFamilyMembers();
 
-    void DeleteFamilyMember(int id);
+    void DeleteFamilyMember(string id);
 
     FamilyMember UpdateFamilyMember(FamilyMember familyMember);
 }

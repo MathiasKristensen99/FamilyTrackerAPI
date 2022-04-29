@@ -8,6 +8,7 @@ using FamilyTrackerAPI.WepApi.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace FamilyTrackerAPI.WepApi.Controllers
 {
@@ -44,6 +45,12 @@ namespace FamilyTrackerAPI.WepApi.Controllers
             }
         }
 
+        [HttpDelete("{id}")]
+        public void  DeleteFamilyMember(string id)
+        {
+            _familyMemberService.DeleteFamilyMember(id);
+        }
+        
         [HttpGet]
         public ActionResult<FamilyMembersDto> GetFamilyMembers()
         {
