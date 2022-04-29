@@ -17,7 +17,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FamilyTracker.DB\FamilyTracker.DB.csproj" />
       <ProjectReference Include="..\FamilyTrackerAPI.Core\FamilyTrackerAPI.Core.csproj" />
       <ProjectReference Include="..\FamilyTrackerAPI.Domain\FamilyTrackerAPI.Domain.csproj" />
       <ProjectReference Include="..\FamilyTrackerAPI.MongoDB\FamilyTrackerAPI.MongoDB.csproj" />

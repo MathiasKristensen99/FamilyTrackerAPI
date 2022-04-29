@@ -87,6 +87,26 @@ public class FamilyMemberRepository : IFamilyMemberRepository
 
     public FamilyMember UpdateFamilyMember(FamilyMember familyMember)
     {
-        throw new NotImplementedException();
+        var filter = Builders<FamilyMemberEntity>.Filter.Eq("_id", ObjectId.Parse(familyMember.Id));
+
+        var entity = new FamilyMemberEntity
+        {
+            Id = familyMember.Id,
+            Name = familyMember.Name,
+            Phone = familyMember.Phone,
+            Picture = familyMember.Picture,
+            Location = familyMember.Location
+        };
+        
+        _familyMembersCollection.ReplaceOne(filter, entity);
+
+        return new FamilyMember
+        {
+            Id = entity.Id,
+            Name = entity.Name,
+            Phone = entity.Phone,
+            Picture = entity.Picture,
+            Location = entity.Location
+        };
     }
 }
